@@ -65,3 +65,32 @@ Content-Type: application/json
 
 ### Remover um pet
 DELETE http://localhost:5000/pets/5
+
+
+### ----------------------------------------------------------
+### AULA 03: RELACIONAMENTOS
+### ----------------------------------------------------------
+
+### Pets de um dono que tem pets (Ana)
+GET http://localhost:5000/donos/1/pets
+
+### Pets de um dono sem pets (lista vazia)
+### Crie o Diego pelo POST /donos antes; ele deve ficar com id 4
+GET http://localhost:5000/donos/4/pets
+
+### Dono que nao existe (404)
+GET http://localhost:5000/donos/999/pets
+
+### Desafio da Aula 02: pet com dono que nao existe (404)
+POST http://localhost:5000/pets
+Content-Type: application/json
+
+{
+    "nome": "Fantasma",
+    "especie": "gato",
+    "idade": 1,
+    "dono_id": 999
+}
+
+### Remover um dono sem pets (funciona: Diego)
+DELETE http://localhost:5000/donos/4
